@@ -6,17 +6,17 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
-  addProduct(
+  async addProduct(
     @Body('title') prodTitle: string,
     @Body('description') prodDesc: string,
     @Body('price') prodPrice: number,
   ) {
-    const generatedId = this.productsService.insertProduct(
+    const result = await this.productsService.insertProduct(
       prodTitle,
       prodDesc,
       prodPrice,
     )
-    return { id: generatedId }
+    return result
   }
 
   @Get()
