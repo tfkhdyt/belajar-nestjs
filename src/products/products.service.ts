@@ -21,14 +21,9 @@ export class ProductsService {
     return { ...product }
   }
 
-  updateProduct(
-    id: string,
-    title: string,
-    description: string,
-    price: number
-  ) {
+  updateProduct(id: string, title: string, description: string, price: number) {
     const product = this.findProduct(id)
-    const updatedProduct: Product = {...product}
+    const updatedProduct: Product = { ...product }
     if (title) updatedProduct.title = title
     if (description) updatedProduct.description = description
     if (price) updatedProduct.price = price
@@ -40,6 +35,6 @@ export class ProductsService {
     if (!product) {
       throw new NotFoundException("Couldn't found the product")
     }
-    return {...product}
+    return { ...product }
   }
 }

@@ -32,10 +32,10 @@ export class ProductsController {
   @Patch(':id')
   updateProduct(
     @Param('id') id: string,
-    @Body('title') title: string, 
+    @Body('title') title: string,
     @Body('description') desc: string,
-    @Body('price') price: number
+    @Body('price') price: number,
   ) {
-    return this.productsService.updateProduct(id, title, desc, price) 
+    return this.productsService.updateProduct(id, title, desc, price)
   }
 }
