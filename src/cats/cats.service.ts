@@ -12,4 +12,8 @@ export class CatsService {
   findAll() {
     return this.cats
   }
+
+  findOne(id: number) {
+    return this.cats.find(value => value.id == id)
+  }
 }
