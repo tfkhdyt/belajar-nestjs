@@ -23,12 +23,14 @@ export class ProductsService {
 
   async getProducts() {
     const products = await this.productModel.find()
+    console.log(products)
     return products
   }
 
-  getSingleProduct(id: string) {
-    const product = this.findProduct(id)
-    return { ...product }
+  async getSingleProduct(id: string) {
+    const product = await this.productModel.findById(id)
+    console.log(product)
+    return product
   }
 
   updateProduct(id: string, title: string, description: string, price: number) {
@@ -41,7 +43,7 @@ export class ProductsService {
   }
 
   private findProduct(id: string) {
-    const product = this.products.find((prod) => prod.id === id)
+    const product = this.products.find((prod) => prod._id === id)
     if (!product) {
       throw new NotFoundException("Couldn't found the product")
     }

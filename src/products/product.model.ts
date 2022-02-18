@@ -16,7 +16,7 @@ export const ProductsSchema = new mongoose.Schema({
 })
 
 export interface Product {
-  id: string
+  _id: string
   title: string
   description: string
   price: number
